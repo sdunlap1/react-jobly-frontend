@@ -19,12 +19,13 @@ function SignupForm({ signup, currentUser }) {
     setFormData(data => ({ ...data, [name]: value }));
   };
 
-   // Redirect if user is already logged in
-   useEffect(() => {
-    if (currentUser) {
-      navigate("/profile");
-    }
-  }, [currentUser, navigate]);
+   // Redirect if user is already logged in 
+   // this isn't working in render so removing for now.
+  //  useEffect(() => {
+  //   if (currentUser) {
+  //     navigate("/profile");
+  //   }
+  // }, [currentUser, navigate]);
 
   const handleSubmit = async evt => {
     evt.preventDefault();

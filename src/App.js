@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import JoblyApi from "./api";
 import Homepage from "./pages/Homepage";
@@ -117,7 +117,13 @@ function App() {
             <Route path="/login" element={<LoginForm login={login} />} />
             <Route
               path="/signup"
-              element={<SignupForm signup={signup} currentUser={currentUser} />}
+              element={
+                currentUser ? (
+                  <Navigate to="/profile" />
+                ) : (
+                  <SignupForm signup={signup} />
+                )
+              }
             />
             <Route
               path="/profile"

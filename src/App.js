@@ -83,6 +83,14 @@ function App() {
     setToken(null); // Clear token from localStorage and state
   }
 
+  // A reverse ProtectedRoute to prevent logged-in users from accessing login or signup
+  function PublicRoute({ children, currentUser }) {
+    if (currentUser) {
+      return <Navigate to="/profile" />;
+    }
+    return children;
+  }
+
   return (
     <div className="App">
       <UserProvider value={{ currentUser }}>
@@ -114,15 +122,20 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="/login" element={<LoginForm login={login} />} />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute currentUser={currentUser}>
+                  <LoginForm login={login} />
+                </PublicRoute>
+              }
+            />
             <Route
               path="/signup"
               element={
-                currentUser ? (
-                  <Navigate to="/profile" />
-                ) : (
+                <PublicRoute currentUser={currentUser}>
                   <SignupForm signup={signup} />
-                )
+                </PublicRoute>
               }
             />
             <Route

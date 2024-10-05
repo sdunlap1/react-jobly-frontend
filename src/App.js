@@ -13,6 +13,7 @@ import NavBar from "./components/NavBar";
 import useLocalStorage from "./hooks/useLocalStorage"; // Custom hook for local storage
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserProvider } from "./context/UserContext";
+import NotFound from './pages/NotFound';
 
 const TOKEN_STORAGE_ID = "jobly-token"; // ID to save token in localStorage
 
@@ -149,6 +150,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </UserProvider>

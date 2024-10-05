@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../App.css";
 
-function SignupForm({ signup, currentUser }) {  
+function SignupForm({ signup }) {  
   const navigate = useNavigate(); 
   const [formData, setFormData] = useState({
     username: "",
@@ -18,14 +18,6 @@ function SignupForm({ signup, currentUser }) {
     const { name, value } = evt.target;
     setFormData(data => ({ ...data, [name]: value }));
   };
-
-   // Redirect if user is already logged in 
-   // this isn't working in render so removing for now.
-  //  useEffect(() => {
-  //   if (currentUser) {
-  //     navigate("/profile");
-  //   }
-  // }, [currentUser, navigate]);
 
   const handleSubmit = async evt => {
     evt.preventDefault();

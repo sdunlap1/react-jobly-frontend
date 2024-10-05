@@ -1,0 +1,51 @@
+/* Default navbar styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+
+/* Logged out: center the links */
+.navbar.logged-out {
+  justify-content: center;
+}
+
+/* Logged in: align links to the left */
+.navbar.logged-in {
+  justify-content: flex-start;
+}
+
+/* Link and button styling */
+.navbar a, .navbar button {
+  margin: 0 10px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Button styling */
+.navbar button {
+  background-color: #333;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for links and buttons */
+.navbar a:hover, .navbar button:hover {
+  background-color: #555;
+}
+
+/* Welcome message styling */
+.navbar span {
+  margin-left: auto;
+  padding-left: 20px;
+  font-size: 16px;
+}

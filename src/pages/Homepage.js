@@ -15,7 +15,7 @@ function Homepage() {
       <p>Your one-stop shop for job hunting and company listings.</p>
 
       <div className="TestCompanyCard">
-        <img src={testCompany.logoUrl} alt="Company Logo" />
+        <img className = "App-logo" src={testCompany.logoUrl} alt="Company Logo" />
       </div>
 
       {!currentUser && (
